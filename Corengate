@@ -1,47 +1,45 @@
-// TODO
-// Er moet begonnen worden 
-// Charachter moet van baan naar baan kunen gaan met pijltjes toetsen
-// De banen waar de Characher over loopt moeten een achtergrond krijgen
-// Er moet een achtergrond komen
-// Er moet een punten systeem gemaakt worden
-// Er moeten Enemy's gemaakt worden
-// De Enemy's moeten kunne aanvallen als je in hun pad loopt
-// De Charahter moet duidelijke Boundararies krijgen
-// ETC...
+class character {
 
+  //variabelen
+  int x, y; // positie
+  int vx; // snelheid
+  int radius; //diameter
+  int clr; // kleur
 
+  void init () {
+    //void init  initialiseert de variabelen
 
-//Variabelen
-int vx = 10;
-int x = 489;
-
-// De setup van het scherm 
-void setup () {
-  size (1024, 720);
-  background(0);
-}
-
-void draw () {
-
-  //Hier staan de banen waar de Character over heen gaat lopen
-  fill (0, 255, 255);
-  rect (264, 0, 150, height);
-  rect (414, 0, 150, height);
-  rect (564, 0, 150, height);
-
-  //  beweging van de Character
-  if (key== CODED) {
-    if (keyCode == RIGHT) {
-      x += vx;
-    }
+    //waar bevind de character zich
+    x = 489;
+    y = 620; 
+    //hoe groot is de character
+    radius = 90;
+    //wat is de snelheid van de character
+    vx = 10;
+    //welke kleur krjgt de character
+    clr = color (255, 0, 0);
   }
-  if (key == CODED) {
-    if (keyCode == LEFT) {
-      x -= vx;
+
+
+  void update () {
+    //void update : updated de character
+    //  beweging van de Character
+    if (key== CODED) {
+      if (keyCode == RIGHT) {
+        x += vx;
+      }
+    }
+    if (key == CODED) {
+      if (keyCode == LEFT) {
+        x -= vx;
+      }
     }
   }
 
-  // De Charachter
-  fill (255, 0, 0);
-  ellipse (x, 620, 90, 90);
+  void draw () {
+    //void draw tekent de character
+    // De Charachter
+    fill (clr);
+    ellipse (x, y, radius, radius);
+  }
 }
