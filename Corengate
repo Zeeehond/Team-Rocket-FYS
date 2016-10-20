@@ -7,7 +7,7 @@
 // Er moeten Enemy's gemaakt worden
 // De Enemy's moeten kunne aanvallen als je in hun pad loopt
 // De Charahter moet duidelijke Boundararies krijgen
-// ETC...
+// Fix voor characer niet ontstaan in game scene
 
 //hier staan alle objecten
 character theChr = new character();
