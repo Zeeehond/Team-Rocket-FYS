@@ -9,39 +9,33 @@
 // De Charahter moet duidelijke Boundararies krijgen
 // ETC...
 
+//hier staan alle objecten
+character theChr = new character();
+Lanes theLns = new Lanes ();
 
 
-//Variabelen
-int vx = 10;
-int x = 489;
-
-// De setup van het scherm 
 void setup () {
+  // De setup van het scherm 
   size (1024, 720);
-  background(0);
+}
+
+// al het code dat de game verandert staat hier
+void updateGame () {
+  
+  //theLns.update();
+  theChr.update();
+}
+
+// al het code dat de gamewereld tekent staat hier
+void drawGame () {
+  theLns.draw();
+  theChr.draw();
+  
 }
 
 void draw () {
+ background(0);
 
-  //Hier staan de banen waar de Character over heen gaat lopen
-  fill (0, 255, 255);
-  rect (264, 0, 150, height);
-  rect (414, 0, 150, height);
-  rect (564, 0, 150, height);
-
-  //  beweging van de Character
-  if (key== CODED) {
-    if (keyCode == RIGHT) {
-      x += vx;
-    }
-  }
-  if (key == CODED) {
-    if (keyCode == LEFT) {
-      x -= vx;
-    }
-  }
-
-  // De Charachter
-  fill (255, 0, 0);
-  ellipse (x, 620, 90, 90);
+  updateGame();
+  drawGame();
 }
