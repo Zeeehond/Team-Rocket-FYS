@@ -23,7 +23,7 @@ void setup () {
 void updateGame () {
   
   //theLns.update();
-  theChr.update();
+ //theChr.update();
 }
 
 // al het code dat de gamewereld tekent staat hier
