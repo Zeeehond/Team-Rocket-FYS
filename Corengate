@@ -23,7 +23,11 @@ class character {
 
   void update () {
     //void update : updated de character
-    //  beweging van de Character
+    
+  }
+
+  void draw () {
+    //void draw tekent de character
     if (key== CODED) {
       if (keyCode == RIGHT) {
         x += vx;
@@ -34,10 +38,6 @@ class character {
         x -= vx;
       }
     }
-  }
-
-  void draw () {
-    //void draw tekent de character
     // De Charachter
     fill (clr);
     ellipse (x, y, radius, radius);
