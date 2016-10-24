@@ -10,7 +10,7 @@
 // Fix voor characer niet ontstaan in game scene
 
 //hier staan alle objecten
-character theChr = new character();
+char theChr = new charr();
 Lanes theLns = new Lanes ();
 
 
@@ -23,7 +23,7 @@ void setup () {
 void updateGame () {
   
   //theLns.update();
- //theChr.update();
+  //theChr.update();
 }
 
 // al het code dat de gamewereld tekent staat hier
