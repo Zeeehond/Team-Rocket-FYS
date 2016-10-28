@@ -8,34 +8,85 @@
 // De Enemy's moeten kunne aanvallen als je in hun pad loopt
 // De Charahter moet duidelijke Boundararies krijgen
 // Fix voor characer niet ontstaan in game scene
+PImage bg;
+int y;
+int bx = 390;
+int by = 400;
+int  stage = 0;
 
-//hier staan alle objecten
-char theChr = new charr();
+//hier staan alle Game objecten
+Char theChr = new Char();
 Lanes theLns = new Lanes ();
 
-
-void setup () {
-  // De setup van het scherm 
-  size (1024, 720);
+void setup() {
+  size(1024, 720);
+  frameRate(30);
+  // The background image must be the same size as the parameters
+  // into the size() method. In this program, the size of the image
+  // is 640 x 360 pixels.
+  bg = loadImage("Corengate_bg.png");
 }
 
-// al het code dat de game verandert staat hier
-void updateGame () {
-  
-  //theLns.update();
-  //theChr.update();
 }
 
-// al het code dat de gamewereld tekent staat hier
-void drawGame () {
-  theLns.draw();
-  theChr.draw();
-  
-}
+void draw() {
 
-void draw () {
- background(0);
+  // Start Menu
+  background(bg);
 
-  updateGame();
-  drawGame();
+  stroke(226, 204, 0);
+  line(0, y, width, y);
+
+  y++;
+  if (y > height) {
+    y = 0;
+  }
+
+  textSize(26);
+  text("Easy mode", bx, by);
+  text("Medium mode", bx, by+50);
+  text("Expert mode", bx, by+100);
+  text("Instructions", bx, by+150);
+  textSize(13);
+  text("Press 'esc' to exit", bx, by+200);
+
+
+  if (key == CODED) {
+    if (keyCode == DOWN) {
+      stage++;
+    }
+  }
+  if (key == CODED) {
+    if (keyCode == UP) {
+      stage--;
+    }
+  }
+  textSize(26);
+  if (stage == 0) {
+    text(">                            <", bx-40, by);
+  }
+  if (stage == 1) {
+    text(">                           <", bx-40, by+50);
+  }
+  if (stage == 2) {
+    text(">                           <", bx-40, by+100);
+  }
+  if (stage == 3) {
+    text(">                           <", bx-40, by+150);
+  }
+
+  if (keyCode == ALT && stage == 0) {
+    //Call the class where the easy mode game starts :  theGame.draw();
+    background(0);
+    theLns.draw();
+    theChr.draw();
+  }
+
+
+  if (key == CODED) {
+    if (keyCode == ESC) {
+      //exit the game
+      exit();
+    }
+  }
 }
