@@ -10,7 +10,7 @@ class Char {
     //void init  initialiseert de variabelen
 
     //waar bevind de character zich
-    x = 489;
+    x = width/2;
     y = 620; 
     //hoe groot is de character
     radius = 90;
@@ -23,14 +23,10 @@ class Char {
 
   void update () {
     //void update : updated de character
-    
-  }
 
-  void draw () {
-    //void draw tekent de character
     if (key== CODED) {
       if (keyCode == RIGHT) {
-        x += vx;
+        x = x+150;
       }
     }
     if (key == CODED) {
@@ -38,6 +34,13 @@ class Char {
         x -= vx;
       }
     }
+  }
+
+  void draw () {
+    //void draw tekent de character
+
+
+
     // De Charachter
     fill (clr);
     ellipse (x, y, radius, radius);
