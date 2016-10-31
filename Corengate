@@ -1,4 +1,4 @@
-class char {
+class Char {
 
   //variabelen
   int x, y; // positie
