@@ -16,6 +16,7 @@ int  stage = 0;
 
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
+Enemy theNmy = new Enemy();
 
 
 void setup() {
@@ -24,6 +25,7 @@ void setup() {
   // into the size() method. In this program, the size of the image
   // is 640 x 360 pixels.
       theChr.init();
+      theNmy.init();
       
   if (key == CODED) {
     if (keyCode == ESC) {
@@ -44,5 +46,6 @@ void draw() {
   
     theLns.draw();
     theChr.draw();
+    theNmy.draw();
     
   }
