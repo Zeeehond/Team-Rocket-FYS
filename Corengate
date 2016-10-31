@@ -7,9 +7,19 @@ class Lanes {
       int m = millis() /100;
       y+=speed;
       y%=height;
-      image(d, 300, int(y));
-      image(d.get(0, d.height-int(y), d.width, int(y)), 300, 0);
-      
+      image(d, 288, int(y));
+      image(d.get(0, d.height-int(y), d.width, int(y)), 288, 0);
       text("score: " + m, 10, 50);
-    }
+      
+      
+      if (m == 100) { // level 1 speed
+        speed = 2.5;
+      }
+      if (m == 200) { // level 2 speed
+        speed = 3;
+      }
+      if (m == 300) { // level 3 speed
+        speed = 3.5;
+      }
+   }
 }
