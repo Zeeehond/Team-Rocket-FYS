@@ -33,8 +33,10 @@ void setup() {
   }
 }
 
-void update() {
- theChr.update(); 
+
+
+void keyPressed() {
+ theChr.keyPressed(); 
 }
 
 
