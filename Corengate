@@ -16,7 +16,7 @@ class Char {
     //hoe groot is de character
     radius = 90;
     //welke kleur krjgt de character
-    clr = color (255, 0, 0);
+    clr = color (0, 255, 80);
     lane = 1;
   }
 
@@ -50,7 +50,6 @@ class Char {
      x = 662;
     }
     
-    println(lane);
 
     // De Charachter
     fill (clr);
