@@ -1,59 +1,39 @@
-class Char {
+class Enemy {
 
-  //variabelen
-  int x, y; // positie
-  int vx; // snelheid
-  int radius; //diameter
-  int clr; // kleur
-  int lane; // welke lane is de character
+  int radius;
+  int lane;
+  int x, y;
+  int clrEnemy;
+  int randomSpawn;
+  int enemySpawned;
 
   void init () {
-    //void init  initialiseert de variabelen
 
-    //waar bevind de character zich
-    x = width/2;
-    y = 620; 
-    //hoe groot is de character
-    radius = 90;
-    //welke kleur krjgt de character
-    clr = color (255, 0, 0);
-    lane = 1;
-  }
-
-
-  void keyPressed() {
-
-    if (key== CODED) {
-      if (keyCode == RIGHT) {
-        x = x+150;
-        lane = lane + 1;
-      }
-    }
-    if (key == CODED) {
-      if (keyCode == LEFT) {
-        x = x-150;
-        lane = lane - 1;
-      }
-    }
+    radius = 80;
+    clrEnemy = color (255, 0, 0);
+    x = 512;
+    y = 100;
   }
 
 
   void draw () {
+    lane = int(random(3));
 
-    if (lane < 0) {
-      lane = 0;
+    if (lane == 0) {
       x = 362;
     }
-    
-    if (lane >2) {
-     lane = 2;
-     x = 662;
+    if (lane == 1) {
+      x = 512;
     }
-    
-    println(lane);
+    if (lane == 2) {
+      x = 662;
+    }
 
-    // De Charachter
-    fill (clr);
-    ellipse (x, y, radius, radius);
+    randomSpawn = int(random(1000));
+    println(lane);
+    if (randomSpawn <= 25) {
+      fill(clrEnemy);
+      ellipse (x, y, radius, radius);
+    }
   }
 }
