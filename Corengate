@@ -1,17 +1,15 @@
+
 class Lanes {
 
-
-
-  //tekent de banen waar de CHaracter over rend
-  void draw() {
-
-    fill (255, 144, 0);
-    rect (287, 0, 150, height);
-    rect (437, 0, 150, height);
-    rect (587, 0, 150, height);
-  }
-  void update () {
-    //update???
-  }
+ 
+    void draw() {
+      background(0);
+      int m = millis() /100;
+      y+=speed;
+      y%=height;
+      image(d, 300, int(y));
+      image(d.get(0, d.height-int(y), d.width, int(y)), 300, 0);
+      
+      text("score: " + m, 10, 50);
+    }
 }
-
