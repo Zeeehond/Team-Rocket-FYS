@@ -5,6 +5,7 @@ class Char {
   int vx; // snelheid
   int radius; //diameter
   int clr; // kleur
+  int lane; // welke lane is de character
 
   void init () {
     //void init  initialiseert de variabelen
@@ -14,32 +15,42 @@ class Char {
     y = 620; 
     //hoe groot is de character
     radius = 90;
-    //wat is de snelheid van de character
-    vx = 10;
     //welke kleur krjgt de character
     clr = color (255, 0, 0);
+    lane = 1;
   }
 
 
-  void update () {
-    //void update : updated de character
+  void keyPressed() {
 
     if (key== CODED) {
       if (keyCode == RIGHT) {
         x = x+150;
+        lane = lane + 1;
       }
     }
     if (key == CODED) {
       if (keyCode == LEFT) {
-        x -= vx;
+        x = x-150;
+        lane = lane - 1;
       }
     }
   }
 
+
   void draw () {
-    //void draw tekent de character
 
-
+    if (lane < 0) {
+      lane = 0;
+      x = 362;
+    }
+    
+    if (lane >2) {
+     lane = 2;
+     x = 662;
+    }
+    
+    println(lane);
 
     // De Charachter
     fill (clr);
