@@ -8,11 +8,13 @@
 // De Enemies moeten kunnen aanvallen als je in hun pad loopt
 // De Character moet duidelijke Boundararies krijgen
 // Fix voor characer niet ontstaan in game scene
-PImage bg;
-int y;
+float y =1;
+float speed = 2;
+PImage d;
 int bx = 390;
 int by = 400;
 int  stage = 0;
+boolean alive = true;
 
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
@@ -21,11 +23,16 @@ Enemy theNmy = new Enemy();
 
 void setup() {
   size(1024, 720);
+   d = loadImage("lanes.png");
   // The background image must be the same size as the parameters
   // into the size() method. In this program, the size of the image
   // is 640 x 360 pixels.
       theChr.init();
       theNmy.init();
+      smooth();
+      rectMode(CENTER);
+      noStroke();
+      
       
   if (key == CODED) {
     if (keyCode == ESC) {
@@ -48,4 +55,4 @@ void draw() {
     theChr.draw();
     theNmy.draw();
     
-  }
+}
