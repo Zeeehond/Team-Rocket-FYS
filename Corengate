@@ -1,7 +1,7 @@
 class Char {
 
   //variabelen
-  int x, y; // positie
+  int x, y; // Positie
   int vx; // snelheid
   int radius; //diameter
   int clr; // kleur
@@ -53,7 +53,7 @@ class Char {
 
     // De Charachter
     fill (clr);
-    ellipse (x, y, radius, radius);
+    ellipse(x, y, radius, radius);
     
   }
 }
