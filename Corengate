@@ -1,12 +1,12 @@
 // TODO
 // Er moet begonnen worden 
-// Charachter moet van baan naar baan kunen gaan met pijltjes toetsen
-// De banen waar de Characher over loopt moeten een achtergrond krijgen
+// Character moet van baan naar baan kunnen gaan met pijltjes toetsen
+// De banen waar de Character over loopt moeten een achtergrond krijgen
 // Er moet een achtergrond komen
-// Er moet een punten systeem gemaakt worden
-// Er moeten Enemy's gemaakt worden
-// De Enemy's moeten kunne aanvallen als je in hun pad loopt
-// De Charahter moet duidelijke Boundararies krijgen
+// Er moet een puntensysteem gemaakt worden
+// Er moeten Enemies gemaakt worden
+// De Enemies moeten kunnen aanvallen als je in hun pad loopt
+// De Character moet duidelijke Boundararies krijgen
 // Fix voor characer niet ontstaan in game scene
 PImage bg;
 int y;
