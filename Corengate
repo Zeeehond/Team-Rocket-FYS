@@ -54,5 +54,6 @@ class Char {
     // De Charachter
     fill (clr);
     ellipse (x, y, radius, radius);
+    
   }
 }
