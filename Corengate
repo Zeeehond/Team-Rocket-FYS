@@ -1,22 +1,46 @@
 class Enemy {
 
-  int radius;
+  int diameter, radius;
   int lane;
   int x, y;
   int clrEnemy;
-  int randomSpawn;
-  int enemySpawned;
+  int circleX;
+  int circleY;
 
   void init () {
-
-    radius = 80;
+    
+    
+    diameter = 150;
+    radius = diameter /2;
     clrEnemy = color (255, 0, 0);
-    x = 512;
-    y = 100;
+    circleX = 512;
+    circleY = 50;
   }
 
 
   void draw () {
+       
+       
+   fill(clrEnemy);
+   ellipse(circleX, circleY, radius, radius); 
+   circleY++;
+    if (circleY > height) {
+     circleY = lane;
+    }
+    
+    if (alive == false) {
+      theChr.x = 1100;
+      theChr.y = 800;
+    }
+  if (dist(theChr.x, theChr.y, circleX, circleY) < radius) {
+   // Collision
+   alive = false;
+  // exit();
+  }
+  
+
+
+
     lane = int(random(3));
 
     if (lane == 0) {
@@ -27,13 +51,6 @@ class Enemy {
     }
     if (lane == 2) {
       x = 662;
-    }
-
-    randomSpawn = int(random(1000));
-    println(lane);
-    if (randomSpawn <= 25) {
-      fill(clrEnemy);
-      ellipse (x, y, radius, radius);
     }
   }
 }
