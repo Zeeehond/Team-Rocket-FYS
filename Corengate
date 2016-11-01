@@ -11,15 +11,24 @@ class Lanes {
       image(d.get(0, d.height-int(y), d.width, int(y)), 288, 0);
       text("score: " + m, 10, 50);
       
-      
-      if (m == 100) { // level 1 speed
-        speed = 2.5;
+     if (m == 100) { // level 1 speed
+        speed = 4;
       }
       if (m == 200) { // level 2 speed
-        speed = 3;
+        speed = 6;
       }
       if (m == 300) { // level 3 speed
-        speed = 3.5;
-      }
+        speed = 8;
+
+}
+  
+  if (alive==false) {
+    fill(255,40,10);
+    textSize(80);
+    text("Game Over " + "\n" + "Your score: " + m , 287, 360);
+     noLoop();
+  }
+
    }
+   
 }
