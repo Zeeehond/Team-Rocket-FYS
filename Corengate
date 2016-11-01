@@ -6,7 +6,7 @@ class Char {
   int radius; //diameter
   int clr; // kleur
   int lane; // welke lane is de character
-
+  
   void init () {
     //void init  initialiseert de variabelen
 
@@ -39,9 +39,7 @@ class Char {
 
 
   void draw () {
- // De Charachter      
-    fill (clr);
-    ellipse(x, y, radius, radius);
+ 
     if (lane < 0) {
       lane = 0;
       x = 362;
@@ -51,8 +49,9 @@ class Char {
      lane = 2;
      x = 662;
     }
-    
-   
-    
+  
+ // De Charachter      
+    fill (clr);
+    ellipse(x, y, radius, radius); 
   }
 }
