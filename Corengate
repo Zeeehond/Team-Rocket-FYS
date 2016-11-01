@@ -15,6 +15,7 @@ int bx = 390;
 int by = 400;
 int  stage = 0;
 boolean alive = true;
+int m = millis() /100;
 
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
