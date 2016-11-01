@@ -39,7 +39,9 @@ class Char {
 
 
   void draw () {
-
+ // De Charachter      
+    fill (clr);
+    ellipse(x, y, radius, radius);
     if (lane < 0) {
       lane = 0;
       x = 362;
@@ -50,10 +52,7 @@ class Char {
      x = 662;
     }
     
-
-    // De Charachter
-    fill (clr);
-    ellipse(x, y, radius, radius);
+   
     
   }
 }
