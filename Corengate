@@ -9,7 +9,7 @@
 // De Character moet duidelijke Boundararies krijgen
 // Fix voor characer niet ontstaan in game scene
 float y =1;
-float speed = 2;
+int speed = 2;
 PImage d;
 int bx = 390;
 int by = 400;
@@ -24,17 +24,17 @@ Enemy theNmy = new Enemy();
 
 void setup() {
   size(1024, 720);
-   d = loadImage("lanes.png");
+  d = loadImage("lanes.png");
   // The background image must be the same size as the parameters
   // into the size() method. In this program, the size of the image
   // is 1024 x 720 pixels.
-      theChr.init();
-      theNmy.init();
-      smooth();
-      rectMode(CENTER);
-      noStroke();
-      
-      
+  theChr.init();
+  theNmy.init();  
+  smooth();
+  rectMode(CENTER);
+  noStroke();
+
+
   if (key == CODED) {
     if (keyCode == ESC) {
       //exit the game
@@ -46,17 +46,17 @@ void setup() {
 
 
 void keyPressed() {
- theChr.keyPressed(); 
+  theChr.keyPressed();
 }
 
 
 void draw() {
+
+  theLns.draw();
+  theChr.draw();
+  theNmy.draw();
   
-    theLns.draw();
-    theNmy.draw();
-    theChr.draw();
-    
-    fill(0,0,255);
-    textSize(20);
-    text("Press 'ESC' to exit", 800, 680);
+  fill(0, 0, 255);
+  textSize(20);
+  text("Press 'ESC' to exit", 800, 680);
 }
