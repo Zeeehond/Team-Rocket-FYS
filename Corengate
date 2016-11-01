@@ -1,10 +1,11 @@
 
+ 
 class Lanes {
 
- 
+  
     void draw() {
       background(0);
-      int m = millis() /100;
+      m = millis() /100;
       y+=speed;
       y%=height;
       image(d, 288, int(y));
