@@ -52,6 +52,10 @@ void keyPressed() {
 void draw() {
   
     theLns.draw();
-    theChr.draw();
     theNmy.draw();
+    theChr.draw();
+    
+    fill(0,0,255);
+    textSize(20);
+    text("Press 'ESC' to exit", 800, 680);
 }
