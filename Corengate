@@ -1,13 +1,14 @@
 class Enemy {
 
   int diameter, radius;
-  int lane;
-  int x, y;
+  
+  int x;
+  int y;
   int clrEnemy;
-  int circleX;
+  int circleX = 512;
   int circleY;
   int enemySpeed = 1;
-  
+  int enemyLane;  
   
   void init () {
     
@@ -15,21 +16,36 @@ class Enemy {
     diameter = 150;
     radius = diameter /2;
     clrEnemy = color (255, 0, 0);
-    circleX = 512;
+    
     circleY = 50;
-  }
+   
+  
+   
+    }
 
 
 
-  void draw () {
+
+  void draw() {
        
    move();
    
    fill(clrEnemy);
-   ellipse(circleX, circleY, radius, radius); 
+   ellipse(circleX, circleY, radius, radius);
    circleY ++;
     if (circleY > height) {
-     circleY = lane;
+      circleY = enemyLane;
+      enemyLane = int(random(3));
+    
+     if (enemyLane == 0) {
+      circleX = 362;
+    }
+    if (enemyLane == 1) {
+      circleX = 512;
+    }
+    if (enemyLane == 2) {
+      circleX = 662;
+    }
     }
     
     if (alive == false) {
@@ -51,23 +67,9 @@ class Enemy {
       if (m == 150) { // level 3 speed enemy
      enemySpeed = 6;
       }
-
-
-    lane = int(random(3));
-
-    if (lane == 0) {
-      x = 362;
-    }
-    if (lane == 1) {
-      x = 512;
-    }
-    if (lane == 2) {
-      x = 662;
-    }
   }
     void move(){
 // Change the x location by speed
 circleY = circleY + enemySpeed;
 }
-
 }
