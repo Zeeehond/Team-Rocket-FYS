@@ -5,8 +5,8 @@ class Enemy {
   int x;
   int y;
   int clrEnemy;
-  int circleX = 512;
-  int circleY;
+  int enemyX = 512;
+  int enemyY;
   int enemySpeed = 1;
   int enemyLane;  
   
@@ -17,7 +17,7 @@ class Enemy {
     radius = diameter /2;
     clrEnemy = color (255, 0, 0);
     
-    circleY = 50;
+    enemyY = 50;
    
   
    
@@ -31,20 +31,20 @@ class Enemy {
    move();
    
    fill(clrEnemy);
-   ellipse(circleX, circleY, radius, radius);
-   circleY ++;
-    if (circleY > height) {
-      circleY = enemyLane;
+   ellipse(enemyX, enemyY, radius, radius);
+   enemyY ++;
+    if (enemyY > height) {
+      enemyY = enemyLane;
       enemyLane = int(random(3));
     
      if (enemyLane == 0) {
-      circleX = 362;
+      enemyX = 362;
     }
     if (enemyLane == 1) {
-      circleX = 512;
+      enemyX = 512;
     }
     if (enemyLane == 2) {
-      circleX = 662;
+      enemyX = 662;
     }
     }
     
@@ -52,24 +52,18 @@ class Enemy {
       theChr.x = 1100;
       theChr.y = 800;
     }
-  if (dist(theChr.x, theChr.y, circleX, circleY) < radius) {
+  if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius) {
    // Collision
    alive = false;
   // exit();
   }
   
-  if ( m == 50) { // level 1 speed enemy
-      enemySpeed = 2;
-      }
-      if (m == 100) { // level 2 speed enemy
-      enemySpeed = 4;
-      }
-      if (m == 150) { // level 3 speed enemy
-     enemySpeed = 6;
+  if ( m %100 == 0) { // level 1 speed enemy
+      enemySpeed += 1.1;
       }
   }
     void move(){
 // Change the x location by speed
-circleY = circleY + enemySpeed;
+enemyY = enemyY + enemySpeed;
 }
 }
