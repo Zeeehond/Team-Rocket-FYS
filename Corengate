@@ -9,7 +9,7 @@
 // De Character moet duidelijke Boundararies krijgen
 // Fix voor characer niet ontstaan in game scene
 float y =1;
-int speed = 2;
+float speed = 1;
 PImage d;
 int bx = 390;
 int by = 400;
