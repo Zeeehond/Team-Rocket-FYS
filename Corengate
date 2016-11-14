@@ -15,12 +15,12 @@ int bx = 390;
 int by = 400;
 int  stage = 0;
 boolean alive = true;
+boolean enemyAlive = true;
 int m = millis() /100;
 
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
-
 
 void setup() {
   size(1024, 720);
@@ -37,26 +37,34 @@ void setup() {
 
   if (key == CODED) {
     if (keyCode == ESC) {
-      //exit the game
-      exit();
-    }
-  }
+      //exit t   }
+  } 
+ }
+
+
+
 }
-
-
-
 void keyPressed() {
   theChr.keyPressed();
+  
+    if (key == 'x') {
+      shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
+    }
+  
 }
-
 
 void draw() {
 
   theLns.draw();
   theChr.draw();
   theNmy.draw();
-  
   fill(0, 0, 255);
   textSize(20);
   text("Press 'ESC' to exit", 800, 680);
+  
+  // Draw shots and remove any that have gone off screen.
+  for (int i=shots.size()-1;i>0;i--)if (shots.get(i).draw())shots.remove(i);
 }
+
+// Tracks all shots.
+ArrayList<Shot> shots = new ArrayList();
