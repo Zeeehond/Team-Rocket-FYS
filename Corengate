@@ -6,8 +6,8 @@ class Enemy {
   int y;
   int clrEnemy;
   int enemyX = 512;
-  int enemyY;
-  int enemySpeed = 1;
+  float enemyY;
+  float enemySpeed = 1;
   int enemyLane;  
   
   void init () {
@@ -59,7 +59,7 @@ class Enemy {
   }
   
   if ( m %100 == 0) { // level 1 speed enemy
-      enemySpeed += 1.1;
+      enemySpeed += 0.3;
       }
   }
     void move(){
