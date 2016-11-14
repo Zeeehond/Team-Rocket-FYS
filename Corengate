@@ -1,35 +1,69 @@
+class Enemy {
 
- 
-class Lanes {
-
+  int diameter, radius;
   
-    void draw() {
-      background(0);
-      m = millis() /100;
-      y+=speed;
-      y%=height;
-      image(d, 288, int(y));
-      image(d.get(0, d.height-int(y), d.width, int(y)), 288, 0);
-      text("score: " + m, 10, 50);
-      
-     if (m == 100) { // level 1 speed
-        speed = 4;
-      }
-      if (m == 200) { // level 2 speed
-        speed = 6;
-      }
-      if (m == 300) { // level 3 speed
-        speed = 8;
-
-}
+  int x;
+  int y;
+  int clrEnemy;
+  int enemyX = 512;
+  int enemyY;
+  int enemySpeed = 1;
+  int enemyLane;  
   
-  if (alive==false) {
-    fill(255,40,10);
-    textSize(80);
-    text("Game Over " + "\n" + "Your score: " + m , 287, 360);
-     noLoop();
-  }
-
-   }
+  void init () {
+    
+    
+    diameter = 150;
+    radius = diameter /2;
+    clrEnemy = color (255, 0, 0);
+    
+    enemyY = 50;
    
+  
+   
+    }
+
+
+
+
+  void draw() {
+       
+   move();
+   
+   fill(clrEnemy);
+   ellipse(enemyX, enemyY, radius, radius);
+   enemyY ++;
+    if (enemyY > height) {
+      enemyY = enemyLane;
+      enemyLane = int(random(3));
+    
+     if (enemyLane == 0) {
+      enemyX = 362;
+    }
+    if (enemyLane == 1) {
+      enemyX = 512;
+    }
+    if (enemyLane == 2) {
+      enemyX = 662;
+    }
+    }
+    
+    if (alive == false) {
+      theChr.x = 1100;
+      theChr.y = 800;
+    }
+  if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius) {
+   // Collision
+   alive = false;
+  // exit();
+  }
+  
+  if ( m %100 == 0) { // level 1 speed enemy
+      enemySpeed += 1.1;
+      }
+  }
+    void move(){
+// Change the x location by speed
+enemyY = enemyY + enemySpeed;
+}
 }
