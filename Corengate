@@ -18,8 +18,13 @@ class Lanes {
   if (alive==false) {
     fill(255,40,10);
     textSize(80);
+    textAlign(CENTER);
     text("Game Over " + "\n" + "Your score: " + m , 287, 360);
-     noLoop();
+    textSize(38);
+    text("Press 'z' to restart", 820, 680);
+    noLoop();
   }
  }
+ 
+ 
 }
