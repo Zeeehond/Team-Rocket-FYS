@@ -28,30 +28,35 @@ void setup() {
   // The background image must be the same size as the parameters
   // into the size() method. In this program, the size of the image
   // is 1024 x 720 pixels.
-  theChr.init();
-  theNmy.init();  
+  theChr.init(); 
+  theNmy.init();
   smooth();
   rectMode(CENTER);
   noStroke();
-
-
+  
   if (key == CODED) {
-    if (keyCode == ESC) {
-      //exit t   }
-  } 
+    if (keyCode == ESC){
+      //Exit
+    }
+  }
  }
 
 
 
-}
+
 void keyPressed() {
   theChr.keyPressed();
   
     if (key == 'x') {
-      shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
+        shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
     }
   
-}
+   if (key == 'z') {
+       reset();
+       loop();
+       
+      } 
+    }
 
 void draw() {
 
@@ -60,7 +65,7 @@ void draw() {
   theNmy.draw();
   fill(0, 0, 255);
   textSize(20);
-  text("Press 'ESC' to exit", 800, 680);
+  
   
   // Draw shots and remove any that have gone off screen.
   for (int i=shots.size()-1;i>0;i--)if (shots.get(i).draw())shots.remove(i);
@@ -68,3 +73,11 @@ void draw() {
 
 // Tracks all shots.
 ArrayList<Shot> shots = new ArrayList();
+
+void reset() { 
+   alive = true;
+   speed = 1; 
+   theChr.init(); 
+   theNmy.init();
+   theNmy.draw();
+ }
