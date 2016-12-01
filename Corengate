@@ -1,25 +1,27 @@
-class PowerSpeed{
+class PowerUp{
   
  
   int diameter, radius;
   
   int x;
   int y;
-  int clrPowerSpeed;
-  int PowerSpeedX = 512;
-  float PowerSpeedY;
-  float PowerSpeed =1;
-  int PowerSpeedLane;  
+  int clrPowerUp;
+  int PowerUpX = 512;
+  float PowerUpY;
+  float PowerUpSpeed =1;
+  int PowerUpLane;  
   
-
+  boolean CanShoot = false;
+   
+   
   void init () {
     
     
     diameter = 50;
     radius = diameter /2;
-    clrPowerSpeed = color (50, 150,50 );
+    clrPowerUp = color (0, 0, 255);
     
-    PowerSpeedY = -100;
+    PowerUpY = -100;
    
   
    
@@ -29,37 +31,50 @@ class PowerSpeed{
 
 
   void draw() {
+       
+   move();
    
-    move();
-    
-  fill(clrPowerSpeed);
-   ellipse(PowerSpeedX, PowerSpeedY, radius, radius);
+   fill(clrPowerUp);
+   ellipse(PowerUpX, PowerUpY, radius, radius);
+   PowerUpY ++;
    
-    if (PowerSpeedY > height) {
-      PowerSpeedY = PowerSpeedLane;
-      PowerSpeedLane = int(random(5));
+    if (PowerUpY > height) {
+      PowerUpY = PowerUpLane;
+      PowerUpLane = int(random(15));
     
-     if (PowerSpeedLane == 0) {
-     PowerSpeedX = 362;
+     if (PowerUpLane == 0) {
+      PowerUpX = 362;
     }
-    if (PowerSpeedLane == 1) {
-      PowerSpeedX = 512;
+    if (PowerUpLane == 1) {
+      PowerUpX = 512;
     }
-    if (PowerSpeedLane == 2) {
-      PowerSpeedX = 662;
+    if (PowerUpLane == 2) {
+      PowerUpX = 662;
     }
     }
     
-      if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius) {
+  if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < radius) {
    // Collision
-        theNmy.enemySpeed += 0.1;
-         speed += 0.1;
+
+   CanShoot=true;
    
   }
+  
+  if (dist(x, PowerUpY, theNmy.x, theNmy.enemyY) < radius) {
+   // Collision
   }
-     void move(){
+    
+  if (theNmy.y==PowerUpY) {
+
+   theNmy.y = -1000;
+  
+  }
+  
+  }
+    void move(){
 // Change the x location by speed
-PowerSpeedY = PowerSpeedY + PowerSpeed;
+PowerUpY = PowerUpY + PowerUpSpeed;
  } 
+ 
   
 }
