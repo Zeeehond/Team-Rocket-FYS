@@ -54,16 +54,19 @@ class Enemy {
     }
   if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius) {
    // Collision
-   alive = false;
+   alive=false;
    // reset();
   }
+  if ( score %100 == 0) {
+    enemySpeed += 0.21;
+  }
   
-  if ( m %100 == 0) { // level 1 speed enemy
-      enemySpeed += 0.3;
-      }
+  if (m% 10 == 0) {
+     score ++; 
+  }
   }
     void move(){
 // Change the x location by speed
-enemyY = enemyY + enemySpeed;
+  enemyY = enemyY + enemySpeed;
  }
 }
